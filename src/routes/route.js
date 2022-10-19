@@ -3,34 +3,61 @@ const underscore = require('underscore')
 const router = express.Router();
 
 
-
-router.get('/sol1', function (req , res) {
-    let array = [1, 2, 3, 5, 6, 7]
-    let total = 0
-    for(let i=0;i<array.length ; i++) {
-        total += array[i]
-    }
-       let n =array[array.length -1]
-       let missingNumber = n*(n+1)/2
-
-       res.send({data: missingNumber -total})
+let array = [12, "Functionup",]
+router.post('/test-post1', function (req , res) {
+    let element = req.body.element
+    array.push(element)
+    console.log({msg: array, status:true})
+    res.send({msg: array, status:true})
 })
 
-router.get('/sol2', function (req , res) {
-    let array = [33, 34, 35, 37, 38]
-    let n = array.length 
-    let total = 0
-    for(let i=0;i<array.length ; i++) {
-        total += array[i]
+let players = [
+    {
+        "name": "manish",
+        "dob": "1/1/1995",
+        "gender": "male",
+        "city": "jalandhar",
+        "sports": [
+            "swimming"
+        ]
+    },
+
+    {
+        "name": "gopal",
+        "dob": "1/09/1995",
+        "gender": "male",
+        "city": "delhi",
+        "sports": [
+            "soccer"
+        ]
+    },
+
+    {
+        "name": "lokesh",
+        "dob": "1/1/1990",
+        "gender": "male",
+        "city": "mumbai",
+        "sports": [
+            "soccer"
+        ]
+    },
+]
+
+
+router.post('/players', function (req, res) {
+    for(let i=0; i<=players.length-1;i++){
+        if(players[i].name == req.body.name){
+            res.send("name already exists")
+        }
+    
     }
-       let first = array[0]
-       let last = array.pop()
-
-       let consectivenumSum = (n +1)*(first + last)/2       
-       let missingNumber = consectivenumSum - total
-
-       res.send({data: missingNumber})
+    players.push(req.body)
+    console.log({data: players, status:true})
+    res.send({data: players, status:true})
 })
+
+
+
 
 module.exports = router;
 // adding this comment for no reason
