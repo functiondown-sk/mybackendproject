@@ -29,6 +29,7 @@ Think of this like getting an ID card the first day of your college and then sho
 
 
 - Write a **POST api /users** to register a user from the user details in request body. 
+
 - Write a ***POST api /login** to login a user that takes user details - email and password from the request body. If the credentials don't match with any user's data return a suitable error.
 On successful login, generate a JWT token and return it in response body. Example 
 ```
