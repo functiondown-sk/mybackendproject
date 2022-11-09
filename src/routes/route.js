@@ -18,7 +18,7 @@ router.put("/users/:userId",auth.authenticate,auth.authorise, userController.upd
 
 router.delete("/users/:userId",auth.authenticate,auth.authorise, userController.deleteUser)
 
-router.post("/users/:userId/post",auth.authenticate,userController.postMessage)
+router.post("/users/:userId/post",auth.authenticate,auth.authorise,userController.postMessage)
 
 
 
